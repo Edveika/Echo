@@ -1,0 +1,18 @@
+#include <iostream>
+#include <Windows.h>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <tchar.h>
+
+#include <d3d9.h>
+#include <d3dx9.h>
+#include <XAudio2.h>
+
+#include "DirectX/DirectX9/DirectX9.h"
+#include "DirectX/DirectX9/Sound/XAudio2.h"
+
+#include "Math/Math.h"
+#include "Game/Game.h"
+#include "Game/Map/Map.h"
+#include "Game/Player/Player.h"
