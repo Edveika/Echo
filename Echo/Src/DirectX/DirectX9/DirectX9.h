@@ -3,13 +3,18 @@
 class DirectX9
 {
 public:
-	LPDIRECT3D9 pD3D;
 	LPDIRECT3DDEVICE9 pd3dDevice;
+	int windowWidth = 860;
+	int windowHeight = 366;
 
 private:
-	std::vector<std::string> adapterDetails;
+	LPDIRECT3D9 pD3D;
 	HINSTANCE hInst;
 	HWND wndHandle;
+
+	std::vector<std::string> supportedScreenWidth;
+	std::vector<std::string> supportedScreenHeight;
+	std::vector<std::string> supportedScreenRefreshRate;
 
 public:
 	DirectX9();

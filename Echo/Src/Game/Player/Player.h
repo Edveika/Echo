@@ -4,9 +4,11 @@ class Player
 {
 private:
 	DirectX9 *dx9;
-	std::string bitmapFileName;
-	int bitmapImageWidth;
-	int bitmapImageHeight;
+	Sprite* spwite;
+
+	//std::string bitmapFileName;
+	//int bitmapImageWidth;
+	//int bitmapImageHeight;
 
 	int health;
 	int state;
@@ -15,25 +17,35 @@ private:
 
 	IDirect3DSurface9* spriteBitmap;
 	IDirect3DSurface9* curSprite;
-	int spriteWidth;
-	int spriteHeight;
+	
+	#define SPRITE_WIDTH 170
+	#define SPRITE_HEIGHT 180
+
+	struct SpriteStruct
+	{
+		RECT src;
+
+		float x;
+		float y;
+
+		float moveX;
+		float moveY;
+
+		int numFrames;
+		int curFrame;
+	} spriteStruct;
 
 	std::vector<IXAudio2SourceVoice*> soundEffect;
 	std::vector<IXAudio2SourceVoice*> voice;
 
 public:
-	Player();
+	Player(DirectX9* dx9);
 	~Player();
 
-	bool Init();
 	bool InitTextures();
-	bool InitSounds();
 
-	void DecreaseHealth();
-	void IncreaseHealth();
+	// Animations
+	bool InitSprites();
+	void Draw();
 
-	void WalkLeft();
-	void WalkRight();
-	void Jump();
-	void Fall();
 };

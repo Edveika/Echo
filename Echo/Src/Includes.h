@@ -12,7 +12,9 @@
 #include "DirectX/DirectX9/DirectX9.h"
 #include "DirectX/DirectX9/Sound/XAudio2.h"
 
+#include "Enum.h"
 #include "Math/Math.h"
 #include "Game/Game.h"
 #include "Game/Map/Map.h"
+#include "Game/Player/Sprite/Sprite.h"
 #include "Game/Player/Player.h"

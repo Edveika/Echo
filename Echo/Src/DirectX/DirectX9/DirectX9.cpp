@@ -37,23 +37,23 @@ bool DirectX9::InitWindow(HINSTANCE hInstance)
 	wcex.hIcon = 0; //icon for the application
 	wcex.hCursor = LoadCursor(NULL, IDC_ARROW); // default cursor
 	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1); // background color
-	wcex.lpszMenuName = L"EchoGameEngine";    // name of menu resource 
-	wcex.lpszClassName = L"EchoGameEngine";  // name of window class 
+	wcex.lpszMenuName = L"Echo the game";    // name of menu resource 
+	wcex.lpszClassName = L"Echo the game";  // name of window class 
 	wcex.hIconSm = 0; // handle to the small icon
 	RegisterClassEx(&wcex);
 
 	// Create window
 	wndHandle = CreateWindowW
 	(
-		L"EchoGameEngine", // window class to use
-		L"EchoGameEngine", // window title
+		L"Echo the game", // window class to use
+		L"Echo the game", // window title
 		WS_EX_TOPMOST // window style. window is going to be on top of every other window
 		//| WS_POPUP  // no borders/buttons & other crap
 		| WS_VISIBLE, // tells the window to display itself
 		CW_USEDEFAULT, // starting x coordinate
 		CW_USEDEFAULT, // starting y coordinate
-		800, // window width(pixels)
-		600, // window height(pixels)
+		windowWidth, // window width(pixels)
+		windowHeight, // window height(pixels)
 		NULL, // parrent window; NULL for desktop
 		NULL, // menu for the application
 		hInstance, // handle to application instance
@@ -85,18 +85,8 @@ bool DirectX9::InitDirect3D()
 	D3DADAPTER_IDENTIFIER9 ident;
 	pD3D->GetAdapterIdentifier(D3DADAPTER_DEFAULT, 0, &ident);
 
-	// Adds information to the list
-	adapterDetails.push_back("Adapter details");
-	adapterDetails.push_back(ident.Description);
-	adapterDetails.push_back(ident.DeviceName);
-	adapterDetails.push_back(ident.Driver);
-
 	// Collects the mode count this adapter has
 	UINT numModes = pD3D->GetAdapterModeCount(D3DADAPTER_DEFAULT, D3DFMT_X8R8G8B8);
-
-	std::ofstream file;
-
-	file.open("SupportedAdapterData.dat");
 
 	// Use the collected mode count to gather info about each one
 	for (int i = 0; i < numModes; ++i)
@@ -113,30 +103,21 @@ bool DirectX9::InitDirect3D()
 			&mode
 		);
 
-		// Blank line to seperate stuff
-		adapterDetails.push_back("");
-		file << "" << std::endl;
-
 		// Output the width
-		sprintf_s(modeStr, "Width=%d", mode.Width);
-		file << mode.Width << std::endl;
+		sprintf_s(modeStr, "%d", mode.Width);
 		// Add width to the list
-		adapterDetails.push_back(modeStr);
+		supportedScreenWidth.push_back(modeStr);
 
 		// Output the height
-		sprintf_s(modeStr, "Height=%d", mode.Height);
-		file << mode.Height << std::endl;
+		sprintf_s(modeStr, "%d", mode.Height);
 		// Add height to the list
-		adapterDetails.push_back(modeStr);
+		supportedScreenHeight.push_back(modeStr);
 
 		// Output the RefreshRate
-		sprintf_s(modeStr, "Refresh rate=%d", mode.RefreshRate);
-		file << mode.RefreshRate << std::endl;
+		sprintf_s(modeStr, "%d", mode.RefreshRate);
 		// Add RefreshRate to the list
-		adapterDetails.push_back(modeStr);
+		supportedScreenRefreshRate.push_back(modeStr);
 	}
-
-	file.close();
 
 	// Fill the Present parameters struct
 	D3DPRESENT_PARAMETERS d3dpp;
@@ -145,8 +126,8 @@ bool DirectX9::InitDirect3D()
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;
 	d3dpp.BackBufferCount = 1;
-	d3dpp.BackBufferWidth = 800;
-	d3dpp.BackBufferHeight = 600;
+	d3dpp.BackBufferWidth = windowWidth;
+	d3dpp.BackBufferHeight = windowHeight;
 	d3dpp.hDeviceWindow = wndHandle;
 
 	// Create a default DirectX device
@@ -160,8 +141,6 @@ bool DirectX9::InitDirect3D()
 		&pd3dDevice // stores the created device in pd3dDevice
 	)))
 		return false;
-
-	pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);    // turn off the 3D lighting
 
 	return true;
 }
