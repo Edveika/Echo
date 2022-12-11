@@ -36,7 +36,10 @@
     <ClCompile Include="Src\Game\Map\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Game\Player\Sprite\Sprite.cpp">
+    <ClCompile Include="Src\Game\Sprite\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Input\Keyboard\Keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +68,10 @@
     <ClInclude Include="Src\Enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Game\Player\Sprite\Sprite.h">
+    <ClInclude Include="Src\Game\Sprite\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Input\Keyboard\Keyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

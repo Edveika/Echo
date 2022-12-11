@@ -143,7 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Game\Player\Sprite\Sprite.cpp" />
+    <ClCompile Include="Src\Input\Keyboard\Keyboard.cpp" />
+    <ClCompile Include="Src\Game\Sprite\Sprite.cpp" />
     <ClCompile Include="Src\Game\Map\Map.cpp" />
     <ClCompile Include="Src\Game\Player\Player.cpp" />
     <ClCompile Include="Src\Game\Game.cpp" />
@@ -153,7 +154,8 @@
     <ClCompile Include="Src\XAudio2\XAudio2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Game\Player\Sprite\Sprite.h" />
+    <ClInclude Include="Src\Input\Keyboard\Keyboard.h" />
+    <ClInclude Include="Src\Game\Sprite\Sprite.h" />
     <ClInclude Include="Src\Enum.h" />
     <ClInclude Include="Src\Game\Map\Map.h" />
     <ClInclude Include="Src\Game\Player\Player.h" />

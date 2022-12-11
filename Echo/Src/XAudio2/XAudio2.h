@@ -34,7 +34,6 @@ public:
 	XAudio2();
 	~XAudio2();
 
-	bool InitXAudio2();
 	IXAudio2SourceVoice* LoadAudioData(LPCWSTR fileName);
 	bool StartAudio(IXAudio2SourceVoice* pSourceVoice);
 	bool StopAudio(IXAudio2SourceVoice* pSourceVoice);

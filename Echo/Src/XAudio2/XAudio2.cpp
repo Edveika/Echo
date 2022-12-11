@@ -2,23 +2,16 @@
 
 XAudio2::XAudio2()
 {
+	if (!CreateXAudio2Device())
+		MessageBoxA(NULL, "Failed to create XAudio2 device!", NULL, NULL);
 
+	if (!CreateIXAudio2MasteringVoiceObj())
+		MessageBoxA(NULL, "Failed to create a voice!", NULL, NULL);
 }
 
 XAudio2::~XAudio2()
 {
 
-}
-
-bool XAudio2::InitXAudio2()
-{
-	if (!CreateXAudio2Device())
-		return false;
-
-	if (!CreateIXAudio2MasteringVoiceObj())
-		return false;
-
-	return true;
 }
 
 bool XAudio2::CreateXAudio2Device()
