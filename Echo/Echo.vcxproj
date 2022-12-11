@@ -151,7 +151,7 @@
     <ClCompile Include="Src\Math\Math.cpp" />
     <ClCompile Include="Src\DirectX\DirectX9\DirectX9.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
-    <ClCompile Include="Src\DirectX\DirectX9\Sound\XAudio2.cpp" />
+    <ClCompile Include="Src\XAudio2\XAudio2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Game\Player\Sprite\Sprite.h" />
@@ -163,7 +163,7 @@
     <ClInclude Include="Src\Math\Math.h" />
     <ClInclude Include="Src\DirectX\DirectX9\DirectX9.h" />
     <ClInclude Include="Src\Includes.h" />
-    <ClInclude Include="Src\DirectX\DirectX9\Sound\XAudio2.h" />
+    <ClInclude Include="Src\XAudio2\XAudio2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

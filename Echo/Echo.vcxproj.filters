@@ -27,7 +27,7 @@
     <ClCompile Include="Src\DirectX\DirectX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\DirectX\DirectX9\Sound\XAudio2.cpp">
+    <ClCompile Include="Src\XAudio2\XAudio2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Game\Game.cpp">
@@ -56,7 +56,7 @@
     <ClInclude Include="Src\DirectX\DirectX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\DirectX\DirectX9\Sound\XAudio2.h">
+    <ClInclude Include="Src\XAudio2\XAudio2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Game\Game.h">

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <Windows.h>
 #include <vector>
@@ -10,7 +11,7 @@
 #include <XAudio2.h>
 
 #include "DirectX/DirectX9/DirectX9.h"
-#include "DirectX/DirectX9/Sound/XAudio2.h"
+#include "XAudio2/XAudio2.h"
 
 #include "Enum.h"
 #include "Math/Math.h"
