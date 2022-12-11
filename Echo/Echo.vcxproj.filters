@@ -18,13 +18,10 @@
     <ClCompile Include="Src\WinMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\DirectX\DirectX9\DirectX9.cpp">
+    <ClCompile Include="Src\DirectX\DirectX9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Math\Math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\DirectX\DirectX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\XAudio2\XAudio2.cpp">
@@ -47,13 +44,10 @@
     <ClInclude Include="Src\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\DirectX\DirectX9\DirectX9.h">
+    <ClInclude Include="Src\DirectX\DirectX9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Math\Math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\DirectX\DirectX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\XAudio2\XAudio2.h">

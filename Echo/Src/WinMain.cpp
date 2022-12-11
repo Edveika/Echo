@@ -4,18 +4,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	srand(time(NULL));
 
-	DirectX9* dx9 = new DirectX9();
+	DirectX9* dx9 = new DirectX9(hInstance);
 	//XAudio2* xa2 = new XAudio2();
 	//Sprite* sprite = new Sprite(dx9->pd3dDevice, L"sprite.png");
 	Player* player = new Player();
-	dx9->InitDirectX9(hInstance);
 	//dx9->InitDirectX9(hInstance);
 	//xa2->InitXAudio2();
 
 	//IXAudio2SourceVoice* srcVoice = xa2->LoadAudioData(L"song.wav");
 	//xa2->StartAudio(srcVoice);
 
-	Sprite *sprit = new Sprite(dx9->pd3dDevice, L"sprite.png", {860, 366}, {170, 180}, {0, 0}, 4);
+	Sprite* sprit = new Sprite(dx9->pd3dDevice, L"sprite.png", { 860, 366 }, { 170, 180 }, { 0, 0 }, 4);
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
@@ -42,7 +41,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			dx9->pd3dDevice->BeginScene();
 
-			//player->Draw();
+			sprit->Draw();
 			sprit->Draw();
 
 			dx9->pd3dDevice->EndScene();

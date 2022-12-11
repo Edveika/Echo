@@ -10,7 +10,7 @@
 #include <d3dx9.h>
 #include <XAudio2.h>
 
-#include "DirectX/DirectX9/DirectX9.h"
+#include "DirectX/DirectX9.h"
 #include "XAudio2/XAudio2.h"
 
 #include "Enum.h"
