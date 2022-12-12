@@ -3,8 +3,8 @@
 class Player
 {
 private:
-	int health;
 	int state;
+	int health;
 	Vector2 curPos;
 	Vector2 curVel;
 
