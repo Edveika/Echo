@@ -96,11 +96,8 @@ bool DirectX9::InitDirect3D()
 			&mode
 		);
 
-		// Add width to the list
-		supportedScreenWidth.push_back(mode.Width);
-
-		// Add height to the list
-		supportedScreenHeight.push_back(mode.Height);
+		// Add screen dimensions to the list
+		supportedScreenDim.push_back({ mode.Width, mode.Height });
 
 		// Add RefreshRate to the list
 		supportedScreenRefreshRate.push_back(mode.RefreshRate);

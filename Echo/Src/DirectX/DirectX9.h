@@ -12,8 +12,7 @@ private:
 	HINSTANCE hInst;
 	HWND wndHandle;
 
-	std::vector<int> supportedScreenWidth;
-	std::vector<int> supportedScreenHeight;
+	std::vector<D3DXVECTOR2> supportedScreenDim;
 	std::vector<int> supportedScreenRefreshRate;
 
 public:
