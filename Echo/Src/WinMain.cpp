@@ -3,7 +3,7 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	srand(time(NULL));
-
+	
 	DirectX9* dx9 = new DirectX9(hInstance);
 	//XAudio2* xa2 = new XAudio2();
 	Player* player = new Player();

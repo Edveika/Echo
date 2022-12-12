@@ -5,8 +5,8 @@ class Player
 private:
 	int state;
 	int health;
-	Vector2 curPos;
-	Vector2 curVel;
+	D3DXVECTOR3 curPos;
+	D3DXVECTOR3 curVel;
 
 public:
 	Player();

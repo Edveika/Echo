@@ -2,7 +2,7 @@
 
 // todo: add sprite rows
 
-Sprite::Sprite(LPDIRECT3DDEVICE9 pd3dDevice, LPCWSTR fileName, Vector2 spriteSize, Vector2 spritePos, int numFrames)
+Sprite::Sprite(LPDIRECT3DDEVICE9 pd3dDevice, LPCWSTR fileName, D3DXVECTOR2 spriteSize, D3DXVECTOR2 spritePos, int numFrames)
 {
 	this->pd3dDevice = pd3dDevice;
 	this->src.top = 0;

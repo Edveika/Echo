@@ -4,8 +4,8 @@ class DirectX9
 {
 public:
 	LPDIRECT3DDEVICE9 pd3dDevice;
-	int windowWidth = 860;
-	int windowHeight = 366;
+	int windowWidth = 800;
+	int windowHeight = 600;
 
 private:
 	LPDIRECT3D9 pD3D;
@@ -19,8 +19,6 @@ private:
 public:
 	DirectX9(HINSTANCE hInstance);
 	~DirectX9();
-
-	bool InitDirectX9(HINSTANCE hInstance);
 
 	IDirect3DSurface9* GetSurfaceFromBitmap(std::string filename, int imageWidth, int imageHeight);
 
