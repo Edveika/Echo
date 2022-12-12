@@ -13,9 +13,12 @@ Sprite::Sprite(LPDIRECT3DDEVICE9 pd3dDevice, LPCWSTR fileName, Vector2 imageSize
 	this->numFrames = numFrames;
 	this->spritePos = spritePos;
 	this->spriteSize = spriteSize;
+	
+	if (FAILED(D3DXCreateTextureFromFileEx(pd3dDevice, fileName, imageSize.x, imageSize.y, D3DX_DEFAULT, 0, D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_DEFAULT, D3DX_DEFAULT, 0, NULL, NULL, &texture)))
+		MessageBoxA(NULL, "Failed to create texture from file!", NULL, NULL);
 
-	D3DXCreateTextureFromFileEx(pd3dDevice, fileName, imageSize.x, imageSize.y, D3DX_DEFAULT, 0, D3DFMT_X8R8G8B8, D3DPOOL_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT, 0, NULL, NULL, &texture);
-	D3DXCreateSprite(pd3dDevice, &sprite);
+	if (FAILED(D3DXCreateSprite(pd3dDevice, &sprite)))
+		MessageBoxA(NULL, "Failed to create a sprite!", NULL, NULL);
 }
 
 Sprite::~Sprite()
@@ -45,13 +48,13 @@ void Sprite::DrawTexture(D3DCOLOR color)
 
 void Sprite::Draw()
 {
-	if (curFrame < numFrames)
-		++curFrame;
+	if (this->curFrame < this->numFrames)
+		++this->curFrame;
 	else
-		curFrame = 0;
+		this->curFrame = 0;
 
-	src.left = curFrame * spriteSize.x;
-	src.right = src.left + spriteSize.y;
+	this->src.left = this->curFrame * this->spriteSize.x;
+	this->src.right = this->src.left + this->spriteSize.y;
 
 	DrawTexture(this->spritePos, &this->src, 0xFFFFFFFF);
 }

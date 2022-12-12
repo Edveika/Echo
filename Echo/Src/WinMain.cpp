@@ -12,7 +12,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//IXAudio2SourceVoice* srcVoice = xa2->LoadAudioData(L"song.wav");
 	//xa2->StartAudio(srcVoice);
 
-	Sprite* sprite = new Sprite(dx9->pd3dDevice, L"sprite.png", { 860, 366 }, { 170, 180 }, { 0, 0 }, 4);
+	Sprite* sprite = new Sprite(dx9->pd3dDevice, L"Walk.png", { 1024, 128 }, { 128, 128 }, { 0, 0 }, 7);
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				0,
 				NULL,
 				D3DCLEAR_TARGET, // tells dx that you want the render buffer to be cleared
-				D3DCOLOR_XRGB(0, 0, 0), // clears the screen to white color
+				D3DCOLOR_XRGB(244, 0, 0), // clears the screen to white color
 				1.0f, // 1.0f gets passed into depth buffer. depth buffers helps dx determine how far the object uis from the viewer. (hols a vlue between 0.0f - 1.0f)
 				0 // Stencil buffer allows for masking certain areas of an image, so they arent displayed. because stencil buffer is not used, we pass 0
 			);
@@ -40,9 +40,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			dx9->pd3dDevice->BeginScene();
 			kb.GetInput();
 
-			if (kb.IsPressed(DIK_A))
-				MessageBoxA(NULL, "A", NULL, NULL);
-			
 			sprite->Draw();
 
 			dx9->pd3dDevice->EndScene();
