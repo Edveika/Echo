@@ -143,27 +143,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Input\Keyboard\Keyboard.cpp" />
-    <ClCompile Include="Src\Game\Sprite\Sprite.cpp" />
+    <ClCompile Include="Src\Engine\Input\Mouse\Mouse.cpp" />
+    <ClCompile Include="Src\Engine\Engine.cpp" />
+    <ClCompile Include="Src\Engine\Input\Keyboard\Keyboard.cpp" />
+    <ClCompile Include="Src\Engine\Graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Src\Game\Map\Map.cpp" />
     <ClCompile Include="Src\Game\Player\Player.cpp" />
     <ClCompile Include="Src\Game\Game.cpp" />
-    <ClCompile Include="Src\Math\Math.cpp" />
-    <ClCompile Include="Src\DirectX\DirectX9.cpp" />
+    <ClCompile Include="Src\Engine\Math\Math.cpp" />
+    <ClCompile Include="Src\Engine\Graphics\DirectX\DirectX9.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
-    <ClCompile Include="Src\XAudio2\XAudio2.cpp" />
+    <ClCompile Include="Src\Engine\Audio\XAudio2\XAudio2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\Input\Keyboard\Keyboard.h" />
-    <ClInclude Include="Src\Game\Sprite\Sprite.h" />
+    <ClInclude Include="Src\Engine\Input\Mouse\Mouse.h" />
+    <ClInclude Include="Src\Engine\Engine.h" />
+    <ClInclude Include="Src\Engine\Input\Keyboard\Keyboard.h" />
+    <ClInclude Include="Src\Engine\Graphics\Sprite\Sprite.h" />
     <ClInclude Include="Src\Enum.h" />
     <ClInclude Include="Src\Game\Map\Map.h" />
     <ClInclude Include="Src\Game\Player\Player.h" />
     <ClInclude Include="Src\Game\Game.h" />
-    <ClInclude Include="Src\Math\Math.h" />
-    <ClInclude Include="Src\DirectX\DirectX9.h" />
+    <ClInclude Include="Src\Engine\Math\Math.h" />
+    <ClInclude Include="Src\Engine\Graphics\DirectX\DirectX9.h" />
     <ClInclude Include="Src\Includes.h" />
-    <ClInclude Include="Src\XAudio2\XAudio2.h" />
+    <ClInclude Include="Src\Engine\Audio\XAudio2\XAudio2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

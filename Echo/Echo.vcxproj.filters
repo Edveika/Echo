@@ -18,13 +18,13 @@
     <ClCompile Include="Src\WinMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\DirectX\DirectX9.cpp">
+    <ClCompile Include="Src\Engine\Graphics\DirectX\DirectX9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Math\Math.cpp">
+    <ClCompile Include="Src\Engine\Math\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\XAudio2\XAudio2.cpp">
+    <ClCompile Include="Src\Engine\Audio\XAudio2\XAudio2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\Game\Game.cpp">
@@ -36,10 +36,16 @@
     <ClCompile Include="Src\Game\Map\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Game\Sprite\Sprite.cpp">
+    <ClCompile Include="Src\Engine\Graphics\Sprite\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Input\Keyboard\Keyboard.cpp">
+    <ClCompile Include="Src\Engine\Input\Keyboard\Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Input\Mouse\Mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +53,13 @@
     <ClInclude Include="Src\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\DirectX\DirectX9.h">
+    <ClInclude Include="Src\Engine\Graphics\DirectX\DirectX9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Math\Math.h">
+    <ClInclude Include="Src\Engine\Math\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\XAudio2\XAudio2.h">
+    <ClInclude Include="Src\Engine\Audio\XAudio2\XAudio2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\Game\Game.h">
@@ -68,10 +74,16 @@
     <ClInclude Include="Src\Enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Game\Sprite\Sprite.h">
+    <ClInclude Include="Src\Engine\Graphics\Sprite\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Input\Keyboard\Keyboard.h">
+    <ClInclude Include="Src\Engine\Input\Keyboard\Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Engine\Input\Mouse\Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

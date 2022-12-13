@@ -1,18 +1,20 @@
 #include "Includes.h"
+#include <sstream>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	srand(time(NULL));
-	
+
 	DirectX9* dx9 = new DirectX9(hInstance);
 	//XAudio2* xa2 = new XAudio2();
-	Player* player = new Player();
+	//Player* player = new Player();
 	Keyboard kb(hInstance);
-
+	Mouse mouse(hInstance);
 	//IXAudio2SourceVoice* srcVoice = xa2->LoadAudioData(L"song.wav");
 	//xa2->StartAudio(srcVoice);
 
-	Sprite* sprite = new Sprite(dx9->pd3dDevice, L"Walk.png", { 128, 128 }, { 50,50 }, 7);
+	D3DXVECTOR2 vec{ 50,50 };
+	Sprite* sprite = new Sprite(dx9->pd3dDevice, L"Walk.png", { 128, 128 }, 7);
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
@@ -38,8 +40,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			);
 
 			dx9->pd3dDevice->BeginScene();
-
-			sprite->Draw();
+			mouse.GetInput();
+			if (mouse.IsPressed(0))
+			{
+				vec.x += mouse.TravelX();
+				vec.y += mouse.TravelY();
+			}
+			sprite->Draw(vec);
 
 			dx9->pd3dDevice->EndScene();
 
