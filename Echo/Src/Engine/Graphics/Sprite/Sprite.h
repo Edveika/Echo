@@ -3,20 +3,22 @@
 class Sprite
 {
 private:
-	LPDIRECT3DDEVICE9 pd3dDevice;
 	LPDIRECT3DTEXTURE9 texture = NULL;
-	D3DXIMAGE_INFO info;
+	LPD3DXSPRITE sprite = NULL;
 
 	RECT src;
 	D3DXVECTOR2 spriteSize;
 	int numFrames;
 	int curFrame;
 
+
+
+	Graphics* gfx;
+	D3DXIMAGE_INFO info;
+
 public:
-	LPD3DXSPRITE sprite = NULL;
-	Sprite(LPDIRECT3DDEVICE9 pd3dDevice, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames);
+	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames);
 	~Sprite();
 
-	void DrawTexture(D3DXVECTOR2 pos, D3DCOLOR color);
-	void Draw(D3DXVECTOR2 pos);
+	void Draw(D3DXVECTOR2 pos, D3DCOLOR color, int curFrame, int delay);
 };

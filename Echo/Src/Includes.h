@@ -13,12 +13,14 @@
 #include <XAudio2.h>
 #include <dinput.h>
 
-#include "Engine/Graphics/DirectX/DirectX9.h"
-#include "Engine/Audio/XAudio2/XAudio2.h"
+#include "Engine/DirectX/DirectX9.h"
+#include "Engine/Graphics/Graphics.h"
+#include "Engine/XAudio2/XAudio2.h"
 #include "Engine/Input/Keyboard/Keyboard.h"
 #include "Engine/Input/Mouse/Mouse.h"
 #include "Engine/Graphics/Sprite/Sprite.h"
 #include "Engine/Math/Math.h"
+#include "Engine/Engine.h"
 
 #include "Enum.h"
 #include "Game/Game.h"
