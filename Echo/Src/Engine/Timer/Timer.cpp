@@ -1,0 +1,42 @@
+#include "../../Includes.h"
+
+Timer::Timer()
+{
+	QueryPerformanceFrequency(&this->timeFrequency);
+}
+
+Timer::~Timer()
+{
+
+}
+
+void Timer::Start()
+{
+	QueryPerformanceCounter(&this->timeStart);
+}
+
+void Timer::End()
+{
+	QueryPerformanceCounter(&this->timeEnd);
+	this->anim_rate = ((float)this->timeEnd.QuadPart - (float)this->timeStart.QuadPart) / this->timeFrequency.QuadPart;
+}
+
+LARGE_INTEGER Timer::GetTimeStart()
+{
+	return this->timeStart;
+}
+
+LARGE_INTEGER Timer::GetTimeEnd()
+{
+	return this->timeEnd;
+}
+
+LARGE_INTEGER Timer::GetTimeFreq()
+{
+	return this->timeFrequency;
+}
+
+float Timer::GetAnimRate()
+{
+	return this->anim_rate;
+}

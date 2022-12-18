@@ -21,6 +21,7 @@
 #include "Engine/Graphics/Sprite/Sprite.h"
 #include "Engine/Math/Math.h"
 #include "Engine/Engine.h"
+#include "Engine/Timer/Timer.h"
 
 #include "Enum.h"
 #include "Game/Game.h"

@@ -7,8 +7,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	int curGameFrame = 0;
 	Engine* engine = new Engine(hInstance);
-	Sprite* sprite = new Sprite(engine->gfx, L"Walk.png", { 128,128 }, 7, 1);
+	Sprite* sprite = new Sprite(engine->gfx, L"Jump.png", { 96,96 }, 8, 2);
+	Sprite* sprite1 = new Sprite(engine->gfx, L"Run.png", { 96,96 }, 7, 2);
 
+	
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 
@@ -27,6 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			engine->dx9->pd3dDevice->BeginScene();
 
 			sprite->Draw({ 50,50 }, 0XFFFFFFFF, curGameFrame, 2);
+			sprite1->Draw({ 250,50 }, 0XFFFFFFFF, curGameFrame, 2);
 
 			engine->dx9->pd3dDevice->EndScene();
 

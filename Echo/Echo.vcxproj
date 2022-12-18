@@ -155,6 +155,7 @@
     <ClCompile Include="Src\Engine\DirectX\DirectX9.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
     <ClCompile Include="Src\Engine\XAudio2\XAudio2.cpp" />
+    <ClCompile Include="Src\Engine\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Engine\Graphics\Graphics.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Src\Engine\DirectX\DirectX9.h" />
     <ClInclude Include="Src\Includes.h" />
     <ClInclude Include="Src\Engine\XAudio2\XAudio2.h" />
+    <ClInclude Include="Src\Engine\Timer\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

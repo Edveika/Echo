@@ -37,6 +37,7 @@ Sprite::~Sprite()
 
 void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR color, int curGameFrame, int f_spriteAnimationDelay)
 {
+	// todo update on time(seconds), not frames
 	// ToFIX: First frame skips to second sprite frame
 	if ((curGameFrame / 10) % f_spriteAnimationDelay == curGameFrame % f_spriteAnimationDelay)
 		++this->curSpriteFrame;
