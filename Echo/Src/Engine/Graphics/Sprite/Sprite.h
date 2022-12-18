@@ -14,12 +14,11 @@ private:
 
 
 	Graphics* gfx;
-	D3DXIMAGE_INFO info;
+	D3DXIMAGE_INFO spriteSheetInfo;
 
 public:
-	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames, int scale);
-	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int curFrame, int numFrames, int scale);
+	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int spriteScale);
 	~Sprite();
 
-	void Draw(D3DXVECTOR2 pos, D3DCOLOR color, bool curFrame);
+	void Draw(D3DXVECTOR2 spritePos, D3DCOLOR spriteColor, bool bTimeToDraw);
 };

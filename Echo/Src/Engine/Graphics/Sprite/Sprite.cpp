@@ -2,7 +2,7 @@
 
 // todo: add sprite rows
 
-Sprite::Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames, int scale)
+Sprite::Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int spriteScale)
 {
 	this->gfx = gfx;
 	this->src.top = 0;
@@ -12,17 +12,17 @@ Sprite::Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numF
 	this->spriteSize = spriteSize;
 	this->curSpriteFrame = 0;
 
-	gfx->GetImageInfo(fileName, info);
+	gfx->GetImageInfo(fileName, spriteSheetInfo);
 
-	if (FAILED(D3DXCreateTextureFromFileEx(this->gfx->pd3dDevice, fileName, this->info.Width, this->info.Height, D3DX_DEFAULT, 0, D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_DEFAULT, D3DX_DEFAULT, 0, NULL, NULL, &this->texture)))
+	if (FAILED(D3DXCreateTextureFromFileEx(this->gfx->pd3dDevice, fileName, this->spriteSheetInfo.Width, this->spriteSheetInfo.Height, D3DX_DEFAULT, 0, D3DFMT_UNKNOWN, D3DPOOL_MANAGED, D3DX_DEFAULT, D3DX_DEFAULT, 0, NULL, NULL, &this->texture)))
 		MessageBoxA(NULL, "Failed to create texture from file!", NULL, NULL);
 	
-	this->numSpriteFrames = info.Width / this->spriteSize.x;
+	this->numSpriteFrames = spriteSheetInfo.Width / this->spriteSize.x;
 
 	if (FAILED(D3DXCreateSprite(this->gfx->pd3dDevice, &this->sprite)))
 		MessageBoxA(NULL, "Failed to create a sprite!", NULL, NULL);
 
-	D3DXMATRIX scaleMat = gfx->MatrixScale(scale, scale, 0);
+	D3DXMATRIX scaleMat = gfx->MatrixScale(spriteScale, spriteScale, 0);
 	sprite->SetTransform(&scaleMat);
 }
 
@@ -35,7 +35,7 @@ Sprite::~Sprite()
 	delete this->gfx;
 }
 
-void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR color, bool bTimeToDraw)
+void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR spriteColor, bool bTimeToDraw)
 {
 	if (bTimeToDraw == true)
 		++this->curSpriteFrame;
@@ -45,5 +45,5 @@ void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR color, bool bTimeToDraw)
 	this->src.left = this->curSpriteFrame * this->spriteSize.x;
 	this->src.right = this->src.left + this->spriteSize.y;
 
-	gfx->DrawTexture(this->texture, this->sprite, spritePos, this->src, color);
+	gfx->DrawTexture(this->texture, this->sprite, spritePos, this->src, spriteColor);
 }
