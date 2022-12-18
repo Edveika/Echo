@@ -21,5 +21,5 @@ public:
 	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int curFrame, int numFrames, int scale);
 	~Sprite();
 
-	void Draw(D3DXVECTOR2 pos, D3DCOLOR color, bool curFrame, int delay);
+	void Draw(D3DXVECTOR2 pos, D3DCOLOR color, bool curFrame);
 };

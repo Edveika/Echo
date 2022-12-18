@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			engine->dx9->pd3dDevice->BeginScene();
 
-			sprite->Draw({ 50,50 }, 0XFFFFFFFF, timer->GetTime(0.1f), 1);
+			sprite->Draw({ 50,50 }, 0XFFFFFFFF, timer->GetTime(0.1f));
 			///sprite1->Draw({ 250,50 }, 0XFFFFFFFF, timer->GetAnimRate(), 10);
 			//sprite1->Draw({ 250,50 }, 0XFFFFFFFF, curGameFrame, 2);
 

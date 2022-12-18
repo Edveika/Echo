@@ -35,9 +35,9 @@ Sprite::~Sprite()
 	delete this->gfx;
 }
 
-void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR color, bool curGameFrame, int f_spriteAnimationDelay)
+void Sprite::Draw(D3DXVECTOR2 spritePos, D3DCOLOR color, bool bTimeToDraw)
 {
-	if (curGameFrame == true)
+	if (bTimeToDraw == true)
 		++this->curSpriteFrame;
 	if (this->curSpriteFrame + 1 > numSpriteFrames)
 		this->curSpriteFrame = 0;
