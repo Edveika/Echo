@@ -19,7 +19,7 @@ public:
 	LARGE_INTEGER GetTimeStart();
 	LARGE_INTEGER GetTimeEnd();
 	LARGE_INTEGER GetTimeFreq();
-	long long GetTimePassed();
+	void GetTimePassed();
 	float GetAnimRate();
 	bool GetTime(float seconds);
 };

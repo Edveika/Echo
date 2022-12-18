@@ -20,7 +20,6 @@ void Timer::End()
 {
 	QueryPerformanceCounter(&this->timeEnd);
 	this->anim_rate = ((float)this->timeEnd.QuadPart - (float)this->timeStart.QuadPart) / this->timeFrequency.QuadPart;
-	this->passedTime += anim_rate;
 }
 
 LARGE_INTEGER Timer::GetTimeStart()
@@ -38,9 +37,9 @@ LARGE_INTEGER Timer::GetTimeFreq()
 	return this->timeFrequency;
 }
 
-long long Timer::GetTimePassed()
+void Timer::GetTimePassed()
 {
-	return 0;
+	this->passedTime += anim_rate;
 }
 
 float Timer::GetAnimRate()
