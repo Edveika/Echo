@@ -5,10 +5,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	srand(time(NULL));
 
-	float curGameFrame = 0;
 	Engine* engine = new Engine(hInstance);
-	Sprite* sprite = new Sprite(engine->gfx, L"Jump.png", { 96,96 }, 2);
-	Sprite* sprite1 = new Sprite(engine->gfx, L"Run.png", { 96,96 }, 2);
+	Sprite* sprite = new Sprite(engine->gfx, L"Jump.png", 96, 96, 2);
+	Sprite* sprite1 = new Sprite(engine->gfx, L"Run.png", 96, 96, 2);
 	Timer* timer = new Timer();
 	
 	MSG msg;
@@ -29,8 +28,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			engine->dx9->pd3dDevice->BeginScene();
 
-			sprite->Draw({ 50,50 }, 0XFFFFFFFF, timer->GetTime(0.1f));
-			sprite1->Draw({ 50,50 }, 0XFFFFFFFF, timer->GetTime(0.1f));
+			// timer doesnt work on 2 structs, the value gets reseted for 2nd obj
+			sprite->Draw({ 50,50 }, 0XFFFFFFFF, 1);
+			sprite1->Draw({ 250,50 }, 0XFFFFFFFF, 1);
 			
 			engine->dx9->pd3dDevice->EndScene();
 
@@ -39,7 +39,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			timer->End();
 			timer->GetTimePassed();
-			curGameFrame++;
 		}
 	}
 
