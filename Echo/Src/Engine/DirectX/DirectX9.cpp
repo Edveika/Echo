@@ -142,3 +142,13 @@ LRESULT CALLBACK DirectX9::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
 	// Procedure for further processing
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
+
+int DirectX9::GetWindowWidth()
+{
+	return this->windowWidth;
+}
+
+int DirectX9::GetWindowHeight()
+{
+	return this->windowHeight;
+}

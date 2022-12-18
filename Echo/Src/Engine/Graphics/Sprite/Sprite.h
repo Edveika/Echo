@@ -8,8 +8,8 @@ private:
 
 	RECT src;
 	D3DXVECTOR2 spriteSize;
-	int numFrames;
-	int curFrame;
+	int numSpriteFrames;
+	int curSpriteFrame;
 
 
 
@@ -17,7 +17,8 @@ private:
 	D3DXIMAGE_INFO info;
 
 public:
-	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames);
+	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int numFrames, int scale);
+	Sprite(Graphics* gfx, LPCWSTR fileName, D3DXVECTOR2 spriteSize, int curFrame, int numFrames, int scale);
 	~Sprite();
 
 	void Draw(D3DXVECTOR2 pos, D3DCOLOR color, int curFrame, int delay);

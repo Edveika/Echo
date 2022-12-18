@@ -54,3 +54,65 @@ void Graphics::GetImageInfo(LPCWSTR fileName, D3DXIMAGE_INFO& info)
 	if (FAILED(D3DXGetImageInfoFromFile(fileName, &info)))
 		MessageBoxA(NULL, "Failed to get image data!", NULL, NULL);
 }
+
+//// Set rotation and translation matrices
+//pd3dDevice->SetTransform(D3DTS_WORLD, &(matRotate * matTranslate));
+D3DXMATRIX Graphics::MatrixRotation(float rotationIndexX, float rotationIndexY, float rotationIndexZ)
+{
+	// a matrices to store the rotation information
+	D3DXMATRIX matRotateX;
+	D3DXMATRIX matRotateY;
+	D3DXMATRIX matRotateZ;
+
+	// build a matrix to rotate the model based on the increasing float value
+	D3DXMatrixRotationX(&matRotateX, rotationIndexX);
+	D3DXMatrixRotationY(&matRotateY, rotationIndexY);
+	D3DXMatrixRotationZ(&matRotateZ, rotationIndexZ);
+
+	return matRotateX * matRotateY * matRotateZ;
+}
+
+D3DXMATRIX Graphics::MatrixTranslation(float translateX, float translateY, float translateZ)
+{
+	D3DXMATRIX matTranslate;
+
+	D3DXMatrixTranslation(&matTranslate, translateX, translateY, translateZ);
+
+	return matTranslate;
+}
+
+//pd3dDevice->SetTransform(D3DTS_VIEW, &matView);    // set the view transform to matView
+D3DXMATRIX Graphics::MatrixView(D3DXVECTOR3 cameraPos, D3DXVECTOR3 lookAtPos, D3DXVECTOR3 upDir)
+{
+	D3DXMATRIX matView;
+
+	D3DXMatrixLookAtLH(&matView,
+		&cameraPos,    // the camera position
+		&lookAtPos,    // the look-at position
+		&upDir);    // the up direction
+
+	return matView;
+}
+
+//pd3dDevice->SetTransform(D3DTS_PROJECTION, &matProjection);    // set the projection
+D3DXMATRIX Graphics::MatrixProjection(float nearViewPlane, float farViewPlane, float horizontalFOV)
+{
+	D3DXMATRIX matProjection;     // the projection transform matrix
+
+	D3DXMatrixPerspectiveFovLH(&matProjection,
+		D3DXToRadian(horizontalFOV),    // the horizontal field of view
+		(FLOAT)800 / (FLOAT)600, // aspect ratio // HARD CODED
+		nearViewPlane,    // the near view-plane
+		farViewPlane);    // the far view-plane
+
+	return matProjection;
+}
+
+// pd3dDevice->SetTransform(D3DTS_WORLD, &matScale);
+D3DXMATRIX Graphics::MatrixScale(float scaleX, float scaleY, float scaleZ)
+{
+	D3DXMATRIX matScale;
+	D3DXMatrixScaling(&matScale, scaleX, scaleY, scaleZ);
+
+	return matScale;
+}
