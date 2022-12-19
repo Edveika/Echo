@@ -2,7 +2,6 @@
 
 Timer::Timer()
 {
-	passedTime = 0;
 	QueryPerformanceFrequency(&this->timeFrequency);
 }
 
@@ -37,9 +36,9 @@ LARGE_INTEGER Timer::GetTimeFreq()
 	return this->timeFrequency;
 }
 
-void Timer::GetTimePassed()
+void Timer::GetTimePassed(float& passedTime)
 {
-	this->passedTime += anim_rate;
+	passedTime += anim_rate;
 }
 
 float Timer::GetAnimRate()
@@ -47,7 +46,7 @@ float Timer::GetAnimRate()
 	return this->anim_rate;
 }
 
-bool Timer::GetTime(float seconds)
+bool Timer::GetTime(float& passedTime, float seconds)
 {
 	if (passedTime >= seconds)
 	{

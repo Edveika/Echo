@@ -12,6 +12,7 @@ Sprite::Sprite(Graphics* gfx, LPCWSTR fileName, int spriteWidth, int spriteHeigh
 	this->src.left = 0;
 	this->src.right = src.left + spriteWidth;
 	this->src.bottom = spriteHeight;
+	this->timePassed = 0.0f;
 
 	gfx->GetImageInfo(fileName, this->spriteSheetInfo);
 

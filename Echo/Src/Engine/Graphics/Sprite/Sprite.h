@@ -2,6 +2,9 @@
 
 class Sprite
 {
+public:
+	float timePassed;
+
 private:
 	LPDIRECT3DTEXTURE9 spriteSheetTexture = NULL;
 	LPD3DXSPRITE sprite = NULL;
