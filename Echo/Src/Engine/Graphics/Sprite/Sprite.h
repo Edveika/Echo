@@ -19,7 +19,9 @@ private:
 
 public:
 	Sprite(Graphics* gfx, LPCWSTR fileName, int spriteWidth, int spriteHeight, int spriteScale);
+	Sprite(Graphics* gfx, LPCWSTR fileName, int spriteWidth, int spriteHeight, int curFrame, int spriteScale);
 	~Sprite();
 
 	void Draw(D3DXVECTOR2 spritePos, D3DCOLOR spriteColor, bool bTimeToDraw);
+	void DrawBack(D3DXVECTOR2 spritePos, D3DCOLOR spriteColor, bool bTimeToDraw);
 };

@@ -6,8 +6,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	srand(time(NULL));
 
 	Engine* engine = new Engine(hInstance);
-	Sprite* sprite = new Sprite(engine->gfx, L"Jump.png", 96, 96, 2);
-	Sprite* sprite1 = new Sprite(engine->gfx, L"Run.png", 96, 96, 2);
+	Sprite* sprite = new Sprite(engine->gfx, L"RunBack.png", 96, 96, 5, 2);
+	//Sprite* sprite1 = new Sprite(engine->gfx, L"Run.png", 96, 96, 2);
 	Timer* timer = new Timer();
 	float timePassed0 = 0.0f;
 	float timePassed1 = 0.0f;
@@ -30,8 +30,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			engine->dx9->pd3dDevice->BeginScene();
 
-			sprite->Draw({ 50,50 }, 0XFFFFFFFF, timer->GetTime(sprite->timePassed, 0.01f));
-			sprite1->Draw({ 250,50 }, 0XFFFFFFFF, timer->GetTime(sprite1->timePassed, 1.f));
+			sprite->DrawBack({ 50,50 }, 0XFFFFFFFF, timer->GetTime(sprite->timePassed, 1.f));
+			//sprite1->Draw({ 250,50 }, 0XFFFFFFFF, timer->GetTime(sprite1->timePassed, 1.f));
 			
 			engine->dx9->pd3dDevice->EndScene();
 
@@ -40,7 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			timer->End();
 			timer->GetTimePassed(sprite->timePassed);
-			timer->GetTimePassed(sprite1->timePassed);
+			//timer->GetTimePassed(sprite1->timePassed);
 		}
 	}
 
