@@ -5,20 +5,22 @@ class Player
 private:
 	int state;
 	int health;
-	D3DXVECTOR3 curPos;
-	D3DXVECTOR3 curVel;
+	D3DXVECTOR2 curPos;
+	D3DXVECTOR2 curVel;
 
-	std::vector<Sprite*> sprites;
+	Sprite* sprites[100];
 	Sprite* curSprite;
 
-	Keyboard* kb;
+	Engine* engine;
 
 public:
-	Player(Keyboard* kb);
+	Player(Engine* engine);
 	~Player();
 
 	void Update();
-	void Draw();
+	void Draw(bool bTimeToDraw);
+
+	bool InitGraphics();
 
 	void GetCurSprite();
 
@@ -28,4 +30,7 @@ public:
 	void MoveDown();
 	void JumpRight();
 	void JumpLeft();
+	void MoveIdle();
+
+	void Movement();
 };

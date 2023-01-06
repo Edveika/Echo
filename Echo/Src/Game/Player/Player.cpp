@@ -1,30 +1,36 @@
 #include "../../Includes.h"
 
-Player::Player(Keyboard* kb)
+Player::Player(Engine* engine)
 {
-	this->kb = kb;
-
-
+	this->engine = engine;
+	InitGraphics();
 }
 
 Player::~Player()
 {
-
+	delete engine;
 }
 
 void Player::Update()
 {
-	this->kb->GetInput();
+	this->engine->kb->GetInput();
 
-	if (this->kb->IsPressed(DIK_A))
-		MoveLeft();
-	else if (this->kb->IsPressed(DIK_D))
-		MoveRight();
+	Movement();
+	GetCurSprite();
 }
 
-void Player::Draw()
+bool Player::InitGraphics()
 {
-	//this->curSprite->Draw();
+	if ((sprites[IDLE] = new Sprite(this->engine->gfx, L"Idle.png", 128, 128, 2)) == NULL)
+		return false;
+
+	if ((sprites[MOVE_LEFT] = new Sprite(this->engine->gfx, L"Run.png", 128, 128, 2)) == NULL)
+		return false;
+
+	if ((sprites[MOVE_RIGHT] = new Sprite(this->engine->gfx, L"Dead.png", 128, 128, 2)) == NULL)
+		return false;
+
+	return true;
 }
 
 void Player::GetCurSprite()
@@ -63,12 +69,14 @@ void Player::MoveLeft()
 
 void Player::MoveUp()
 {
-
+	this->state = MOVE_UP;
+	--this->curPos.y;
 }
 
 void Player::MoveDown()
 {
-
+	this->state = MOVE_DOWN;
+	++this->curPos.y;
 }
 
 void Player::JumpRight()
@@ -79,4 +87,24 @@ void Player::JumpRight()
 void Player::JumpLeft()
 {
 
+}
+
+void Player::MoveIdle()
+{
+	this->state = IDLE;
+}
+
+void Player::Movement()
+{
+	if (this->engine->kb->IsPressed(DIK_A))
+		MoveLeft();
+	else if (this->engine->kb->IsPressed(DIK_D))
+		MoveRight();
+	else
+		MoveIdle();
+}
+
+void Player::Draw(bool bTimeToDraw)
+{
+	curSprite->Draw(this->curPos, 0XFFFFFFFF, bTimeToDraw);
 }
